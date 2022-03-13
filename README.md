@@ -28,6 +28,5 @@ fluxctl install \
 ```
 
 and adding the key from `fluxctl identity --k8s-fwd-ns flux` as a deployment
-key to the repo.
-
+key to the repo at  https://github.com/cakemanny/kube-gitops/settings/keys
 
