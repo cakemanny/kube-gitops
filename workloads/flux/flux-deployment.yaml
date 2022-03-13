@@ -33,6 +33,7 @@ spec:
         - --git-user=cakemanny
         - --git-email=cakemanny@users.noreply.github.com
         - --listen-metrics=:3031
+        - --registry-poll-interval=1h
         image: docker.io/fluxcd/flux:1.24.3
         imagePullPolicy: IfNotPresent
         livenessProbe:
