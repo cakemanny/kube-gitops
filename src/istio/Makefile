@@ -4,6 +4,13 @@ OS=osx
 
 ARCHIVE=istioctl-$(VERSION)-$(OS)-$(ARCH).tar.gz
 
+
+.PHONY: controlplane
+controlplane: bin/istioctl-$(VERSION)
+	mkdir -p ../../workloads/istio-system
+	bin/istioctl-$(VERSION) manifest generate -o ../../workloads/istio-system/
+
+
 bin/istioctl-$(VERSION):
 	mkdir -p bin
 	curl -O -L https://github.com/istio/istio/releases/download/$(VERSION)/$(ARCHIVE)
