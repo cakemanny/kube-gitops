@@ -1,4 +1,6 @@
 ---
+# The service account, cluster roles, and cluster role binding are
+# only needed for Kubernetes with role-based access control (RBAC).
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -14,16 +16,11 @@ metadata:
     name: flux
   name: flux
 rules:
-- apiGroups:
-  - '*'
-  resources:
-  - '*'
-  verbs:
-  - '*'
-- nonResourceURLs:
-  - '*'
-  verbs:
-  - '*'
+  - apiGroups: ['*']
+    resources: ['*']
+    verbs: ['*']
+  - nonResourceURLs: ['*']
+    verbs: ['*']
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -36,6 +33,6 @@ roleRef:
   kind: ClusterRole
   name: flux
 subjects:
-- kind: ServiceAccount
-  name: flux
-  namespace: flux
+  - kind: ServiceAccount
+    name: flux
+    namespace: flux
