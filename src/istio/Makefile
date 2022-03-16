@@ -8,7 +8,7 @@ ARCHIVE=istioctl-$(VERSION)-$(OS)-$(ARCH).tar.gz
 .PHONY: controlplane
 controlplane: bin/istioctl-$(VERSION)
 	mkdir -p ../../workloads/istio-system
-	bin/istioctl-$(VERSION) manifest generate -o ../../workloads/istio-system/
+	bin/istioctl-$(VERSION) manifest generate --set components.cni.enabled=true  -o ../../workloads/istio-system/
 
 
 bin/istioctl-$(VERSION):
