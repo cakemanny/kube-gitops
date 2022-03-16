@@ -328,7 +328,7 @@ data:
         "useMCP": false
       },
       "istio_cni": {
-        "enabled": true
+        "enabled": false
       },
       "revision": "",
       "sidecarInjectorWebhook": {
