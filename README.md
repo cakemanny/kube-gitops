@@ -5,7 +5,8 @@ Installing flux v1 in order to test upgrading to v2
 Create a `kind` k8s cluster on your local machine, see https://kind.sigs.k8s.io/
 
 ```
-go install sigs.k8s.io/kind@v0.11.1 && $(go env GOPATH)/bin/kind create cluster
+go install sigs.k8s.io/kind@v0.11.1
+$(go env GOPATH)/bin/kind create cluster --config=cluster.yaml
 ```
 
 
