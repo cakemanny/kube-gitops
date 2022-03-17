@@ -6,10 +6,14 @@ REV=default
 ARCHIVE=istioctl-$(VERSION)-$(OS)-$(ARCH).tar.gz
 INSTALL_DIR=../../workloads/istio-system/$(REV)/
 
+ifneq "$(REV)" "default"
+  OPTIONS=--set revision=$(REV)
+endif
+
 .PHONY: controlplane
 controlplane: bin/istioctl-$(VERSION)
 	mkdir -p $(INSTALL_DIR)
-	bin/istioctl-$(VERSION) manifest generate -o $(INSTALL_DIR)
+	bin/istioctl-$(VERSION) manifest generate $(OPTIONS) -o $(INSTALL_DIR)
 
 
 bin/istioctl-$(VERSION):
