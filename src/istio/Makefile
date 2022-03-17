@@ -1,14 +1,15 @@
 VERSION=1.10.6
 ARCH=arm64
 OS=osx
+REV=default
 
 ARCHIVE=istioctl-$(VERSION)-$(OS)-$(ARCH).tar.gz
-
+INSTALL_DIR=../../workloads/istio-system/$(REV)/
 
 .PHONY: controlplane
 controlplane: bin/istioctl-$(VERSION)
-	mkdir -p ../../workloads/istio-system
-	bin/istioctl-$(VERSION) manifest generate -o ../../workloads/istio-system/
+	mkdir -p $(INSTALL_DIR)
+	bin/istioctl-$(VERSION) manifest generate -o $(INSTALL_DIR)
 
 
 bin/istioctl-$(VERSION):
