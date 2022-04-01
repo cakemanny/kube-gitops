@@ -1,6 +1,6 @@
 
 
-Installing flux v1 in order to test upgrading to v2
+## Installing flux v1 in order to test upgrading to v2
 
 Create a `kind` k8s cluster on your local machine, see https://kind.sigs.k8s.io/
 
@@ -31,3 +31,28 @@ fluxctl install \
 and adding the key from `fluxctl identity --k8s-fwd-ns flux` as a deployment
 key to the repo at  https://github.com/cakemanny/kube-gitops/settings/keys
 
+
+## TODO: Install flux helm operator
+
+
+## Installing flux v2
+
+```shell
+k scale deployment flux -nflux --replicas=0
+```
+
+https://github.com/settings/tokens
+
+```shell
+export GITHUB_TOKEN=...
+flux bootstrap github \
+  --owner=cakemanny \
+  --repository=kube-gitops \
+  --branch=master \
+  --path=clusters/kind \
+  --personal
+```
+
+or `flux install --export > clusters/kind/flux-system/gotk-components.yaml`
+
+then set up additional Git sources

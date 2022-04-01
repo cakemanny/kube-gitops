@@ -5,6 +5,11 @@ help:
 	@echo targets:
 	@grep '[^:]*:' Makefile | grep -v '^\.' | grep -v '^\t' | sed 's/:.*//' | sed 's/^/  /'
 
+
+.PHONY: minikube
+minikube:
+	minikube start
+
 .PHONY: cluster
 cluster: cluster.yaml
 	test -z "`$(KIND) get clusters -q`" && \
