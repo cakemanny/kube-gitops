@@ -1,3 +1,12 @@
+## Actually
+
+With the current state of this repo.
+```
+make cluster
+make flux
+make flux-key
+```
+This should be enough to get to the point of having flux v1 installed properly.
 
 
 ## Installing flux v1 in order to test upgrading to v2

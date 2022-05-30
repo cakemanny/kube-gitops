@@ -5,7 +5,7 @@ metadata:
   name: flux
   namespace: flux
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       name: flux

@@ -1,6 +1,8 @@
 GOPATH=$(shell go env GOPATH)
 KIND=$(GOPATH)/bin/kind
 
+ORG=cakemanny
+
 help:
 	@echo targets:
 	@grep '[^:]*:' Makefile | grep -v '^\.' | grep -v '^\t' | sed 's/:.*//' | sed 's/^/  /'
@@ -23,7 +25,7 @@ flux: workloads/flux/*.yaml
 .PHONY: flux-key
 flux-key:
 	fluxctl identity --k8s-fwd-ns=flux | pbcopy
-	open https://github.com/cakemanny/kube-gitops/settings/keys
+	open https://github.com/$(ORG)/kube-gitops/settings/keys
 
 .PHONY: istio
 istio:
