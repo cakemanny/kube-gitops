@@ -27,6 +27,12 @@ flux-key:
 	fluxctl identity --k8s-fwd-ns=flux | pbcopy
 	open https://github.com/$(ORG)/kube-gitops/settings/keys
 
+
+.PHONY: flux2
+flux2:
+	kubectl apply -k clusters/kind/flux-system
+
+
 .PHONY: istio
 istio:
 	find workloads/istio-system -type f -name '*.yaml' -exec kubectl apply -f '{}' \;

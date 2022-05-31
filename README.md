@@ -41,11 +41,21 @@ and adding the key from `fluxctl identity --k8s-fwd-ns flux` as a deployment
 key to the repo at  https://github.com/cakemanny/kube-gitops/settings/keys
 
 
-## TODO: Install flux helm operator
+## Install flux helm operator
+See [src/flux/Makefile](src/flux/Makefile)
+```
+make -C src/flux helm-operator
+```
 
 
 ## Installing flux v2
 
+Need flux CI
+```
+brew install fluxcd/tap/flux
+```
+
+Stop flux v1 syncing
 ```shell
 k scale deployment flux -nflux --replicas=0
 ```
