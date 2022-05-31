@@ -35,7 +35,11 @@ flux2:
 .PHONY: flux2-key
 flux2-key:
 	flux create secret git flux-system --url=ssh://git@github.com/$(ORG)/kube-gitops
+	@echo copy the above deployment key
+	@sleep 1
 	open https://github.com/$(ORG)/kube-gitops/settings/keys
+	@echo you may need to run "flux reconcile source git flux-system" after
+	@echo setting the key
 
 
 .PHONY: istio
