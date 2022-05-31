@@ -32,6 +32,11 @@ flux-key:
 flux2:
 	kubectl apply -k clusters/kind/flux-system
 
+.PHONY: flux2-key
+flux2-key:
+	flux create secret git flux-system --url=ssh://git@github.com/$(ORG)/kube-gitops
+	open https://github.com/$(ORG)/kube-gitops/settings/keys
+
 
 .PHONY: istio
 istio:
