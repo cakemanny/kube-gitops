@@ -7,4 +7,4 @@ spec:
   chart:
     repository: https://stefanprodan.github.io/podinfo
     name: podinfo
-    version: 3.2.1
+    version: 6.1.6
